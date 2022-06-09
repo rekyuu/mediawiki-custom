@@ -5,8 +5,7 @@ RUN set -eux; \
     \
     apk add --no-cache \
         nginx \
-        postgresql-libs \
-        postgresql-dev \
+        libpq-dev \
     ;
 
 # Add NGINX outputs and configs
