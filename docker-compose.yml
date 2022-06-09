@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  mediawiki:
+    build: .
+    restart: always
+    ports:
+      - 7000:80
+    volumes:
+      - images:/var/www/html/images
+      - ./LocalSettings.php:/var/www/html/LocalSettings.php
+      - ./logo.png:/var/www/html/resources/assets/logo.png
+
+volumes:
+  images:
