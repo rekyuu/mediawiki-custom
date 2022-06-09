@@ -10,6 +10,7 @@ services:
       - images:/var/www/html/images
       - ./LocalSettings.php:/var/www/html/LocalSettings.php
       - ./logo.png:/var/www/html/resources/assets/logo.png
+      - ./favicon.ico:/var/www/html/favicon.ico
 
 volumes:
   images:
