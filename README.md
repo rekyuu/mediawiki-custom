@@ -6,8 +6,9 @@ This is a custom MediaWiki 1.36.2 Docker image that adds the following features:
 - NGINX server installed
 - NGINX config to provide shortened URLs
 - PostgreSQL PHP support
-- [WikiSEO](https://github.com/octfx/wiki-seo) MediaWiki extension
-- [Discord](https://github.com/jayktaylor/mw-discord) MediaWiki extension
+- [Discord](https://www.mediawiki.org/wiki/Extension:Discord) MediaWiki extension
+- [Widgets](https://www.mediawiki.org/wiki/Extension:Widgets) MediaWiki extension
+- [WikiSEO](https://www.mediawiki.org/wiki/Extension:WikiSEO) MediaWiki extension
 - A backup utility script
 
 ## Running a new server
@@ -28,8 +29,9 @@ This is a custom MediaWiki 1.36.2 Docker image that adds the following features:
 9. Add the following to `LocalSettings.php` to activate the extensions:
 
     ```php
-    wfLoadExtension( 'WikiSEO' );
     wfLoadExtension( 'Discord' );
+    wfLoadExtension( 'Widgets' );
+    wfLoadExtension( 'WikiSEO' );
     ```
 
     Please see each extension's respective repositories for configuration documentation.

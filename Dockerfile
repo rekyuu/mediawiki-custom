@@ -38,6 +38,20 @@ RUN set -eux; \
         /var/www/html/extensions/Discord \
     ;
 
+RUN set -eux; \
+    \
+    git clone --depth 1 \
+        https://gerrit.wikimedia.org/r/mediawiki/extensions/Widgets.git \
+        /var/www/html/extensions/Widgets \
+    ;
+
+RUN set -eux; \
+    \
+    cd /var/www/html/extensions/Widgets; \
+    wget -cO - https://getcomposer.org/composer-2.phar > composer.phar; \
+    php composer.phar update --no-dev; \
+    rm composer.phar;
+
 # Install utility scripts
 COPY ["scripts", "/scripts"]
 
