@@ -1,16 +1,19 @@
 version: "3"
 
 services:
-  mediawiki:
+  wiki:
     build: .
+    container_name: wiki
     restart: always
     ports:
       - 7000:80
     volumes:
-      - images:/var/www/html/images
-      - ./LocalSettings.php:/var/www/html/LocalSettings.php
+      # Uncomment below after initial setup
+      # - ./LocalSettings.php:/var/www/html/LocalSettings.php
       - ./logo.png:/var/www/html/resources/assets/logo.png
       - ./favicon.ico:/var/www/html/favicon.ico
+      - images:/var/www/html/images
+      - ./backups:/backups
 
 volumes:
   images:

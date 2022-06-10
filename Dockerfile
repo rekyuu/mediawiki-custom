@@ -38,6 +38,8 @@ RUN set -eux; \
         /var/www/html/extensions/Discord \
     ;
 
+# Install utility scripts
+COPY ["scripts", "/scripts"]
+
 # Run php-fpm and NGINX
-COPY ["bootstrap.sh", "."]
-CMD ["./bootstrap.sh"]
+CMD ["/scripts/bootstrap.sh"]
