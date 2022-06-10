@@ -1,12 +1,11 @@
 #! /bin/sh
 
-echo "Creating backup..."
-
 TIMESTAMP=$(date -u +"%y%m%d%H%M%S")
 NAME="mediawiki_backup_$TIMESTAMP"
 BACKUP_FOLDER="/backups"
 BACKUP_TMP_FOLDER="/tmp/backup"
-BACKUP_FILEPATH="$BACKUP_FOLDER/$NAME.tar.gz"
+BACKUP_FILENAME="$NAME.tar.gz"
+BACKUP_FILEPATH="$BACKUP_FOLDER/$BACKUP_FILENAME"
 
 mkdir -p "$BACKUP_FOLDER"
 mkdir -p "$BACKUP_TMP_FOLDER" && cd "$BACKUP_TMP_FOLDER" || exit 1
@@ -20,4 +19,4 @@ tar zchf "$BACKUP_FILEPATH" .
 
 rm -rf "$BACKUP_TMP_FOLDER"
 
-echo "Backup completed: $BACKUP_FILEPATH"
+echo "$BACKUP_FILENAME"
