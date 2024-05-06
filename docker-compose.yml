@@ -4,7 +4,7 @@ services:
   wiki:
     build: .
     container_name: wiki
-    restart: always
+    restart: unless-stopped
     ports:
       - 7000:80
     volumes:
