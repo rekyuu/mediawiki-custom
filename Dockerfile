@@ -26,7 +26,8 @@ RUN set -eux; \
 RUN set -eux; \
     \
     git clone --depth 1 \
-        https://github.com/octfx/wiki-seo \
+        https://github.com/wikimedia/mediawiki-extensions-WikiSEO \
+        -b REL1_36 \
         /var/www/html/extensions/WikiSEO \
     ;
 
