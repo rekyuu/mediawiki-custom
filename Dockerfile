@@ -9,10 +9,23 @@ RUN set -eux; \
     apk update; \
     apk upgrade;
 
-# Install latest php-fpm
+# Remove old MediaWiki dependencies
+RUN set -eux; \
+    apk del .mediawiki-phpext-rundeps;
+
+# Install latest PHP and needed extensions
 RUN set -eux; \
     apk add --no-cache \
-        php85-fpm;
+        php85 \
+        php85-fpm \
+        php85-mbstring \
+        php85-xml \
+        php85-ctype \
+        php85-iconv \
+        php85-fileinfo \
+        php85-intl \
+        php85-pgsql \
+        php85-pdo_pgsql;
 
 # Install utility scripts
 COPY ["scripts", "/scripts"]
